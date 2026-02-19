@@ -1,0 +1,122 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 52px;
+    font-weight: bold;
+    width: 100%;
+    margin: 0 0 30px 0; 
+    transform: translateY(-200px);
+}
+
+.buttons-container {
+    display: flex;
+    gap: 20px; 
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    transform: translateY(-20px); 
+}
+
+.button_love,
+.button_not_love {
+    width: 300px;
+    max-width: 80%;
+    padding: 12px 20px;        
+    margin: 0;                   
+    border: none;
+    border-radius: 15px;
+    background-color: #2170e7;
+    color: rgb(0, 0, 0);
+    font-size: 18px;            
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    position: relative;               
+    z-index: 1; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.button_love:hover {
+    background-color: #01ff01;
+    transform: translateY(-3px);  
+    box-shadow: 0 6px 12px rgba(0, 255, 0, 0.3);
+}
+
+.button_not_love:hover {
+    background-color: #ff0000;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(255, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 20px;
+        margin-bottom: 30px;
+        transform: translateY(-10px);
+    }
+    
+    .buttons-container {
+        transform: translateY(-10px);
+        gap: 15px; 
+    }
+    
+    .button_love,
+    .button_not_love {
+        width: 90%;
+        margin: 0; 
+    }
+}
+.button-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 300px;
+    max-width: 80%;
+}
+
+.button_not_love {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: none;
+}
+
+.button-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 300px;
+    max-width: 80%;
+    height: 36px; 
+}
+
+.button_not_love {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 300px;
+    max-width: 80%;
+    height: 36px; 
+}
+
+.button_not_love {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+

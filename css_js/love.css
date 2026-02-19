@@ -1,0 +1,106 @@
+.centerautor {
+    background-image: url('photo/loveautor.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 85% auto;       
+    min-height: 60vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    padding-top: 200px;
+}
+
+@media (min-width: 768px) {
+    .centerautor {
+        background-size: 70% auto;   
+    }
+}
+
+
+@media (min-width: 1024px) {
+    .centerautor {
+        background-size: 50% auto; 
+    }
+}
+
+@media (min-width: 1440px) {
+    .centerautor {
+        background-size: 700px auto;
+    }
+}
+
+.topautor {
+    background-image: url('photo/lovetopautor.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 85% auto;       
+    min-height: 15vh;
+    
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@media (min-width: 1440px) {
+    .topautor {
+        background-size: 1400px auto;
+    }
+}
+
+.Login_Text1,
+.Login_Text2 {
+    width: 300px;        
+    max-width: 80%;        
+    padding: 6px 10px;
+    margin: 10px 0;       
+    border: 2px solid #0c0101;
+    border-radius: 15px;    
+    font-size: 16px;
+    outline: none;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(2px);  
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.Login_Text1:focus,
+.Login_Text2:focus {
+    border-color: #ff0000;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+}
+@media (max-width: 768px) {
+    .Login_Text1,
+    .Login_Text2 {
+        width: 90%;
+        padding: 12px 15px;
+    }
+    
+    .centerautor {
+        background-size: 95% auto;
+    }
+}
+
+.button_1 {
+    width: 300px;
+    max-width: 80%;
+    padding: 10px 15px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 15px;
+    background-color: #007bff;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.button_1:hover {
+    background-color: #480ecf;
+}
+
+.error-message {
+    margin-top: 50px;
+    font-size: 22px;
+    min-height: 20px;
+}

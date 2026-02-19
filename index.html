@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css_js/love.css">
+</head>
+<body>
+    <div class="topautor"></div>
+    <div class="centerautor">
+        <input type="text" placeholder="Имя" class="Login_Text1" id="LT1">
+        <input type="text" placeholder="Фамилия" class="Login_Text2" id="LT2">
+        <button class="button_1" onclick="checkLT()">Войти</button>
+         <div id="errorMessage" class="error-message"></div>
+    </div>
+     <script>
+        function checkLT() {
+            let name = document.getElementById('LT1').value;
+            let surname = document.getElementById('LT2').value;
+            let errorDiv = document.getElementById('errorMessage');
+            
+            name = name.trim();
+            surname = surname.trim();
+            
+            if (name === "Ангелина" && surname === "Авдеева") {
+                window.location.href = 'love2.html';
+            } else {
+                errorDiv.innerHTML = '❌ Неправильное имя или фамилия!';
+                errorDiv.style.color = 'red';
+                setTimeout(function() {
+                    errorDiv.innerHTML = '';
+                },3000);
+            }
+        }
+    </script>
+</body>
+</html>

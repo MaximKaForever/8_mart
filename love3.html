@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Подарок</title>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 52px;
+            font-weight: bold;
+            width: 100%;
+            margin: 0 0 30px 0;
+            transform: translateY(-200px);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .buttons-container {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 100%;
+            transform: translateY(-20px);
+            margin-bottom: 40px;
+        }
+
+        .button-wrapper {
+            position: relative;
+            display: inline-block;
+            width: 300px;
+            max-width: 80%;
+            height: 45px;
+        }
+
+        .button_love,
+        .button_not_love {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 0;
+            border: none;
+            border-radius: 15px;
+            background-color: #2170e7;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            position: absolute;
+            left: 0;
+            top: 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            letter-spacing: 0.5px;
+        }
+
+        .button_love {
+            background: linear-gradient(45deg, #2170e7, #4a90e2);
+            z-index: 2;
+        }
+
+        .button_not_love {
+            background: linear-gradient(45deg, #dc3545, #ff4757);
+            opacity: 0;
+            transform: scale(0.95);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .buttons-container.active .button_love {
+            opacity: 0;
+            transform: scale(0.95);
+            pointer-events: none;
+        }
+
+        .buttons-container.active .button_not_love {
+            opacity: 1;
+            transform: scale(1);
+            pointer-events: auto;
+        }
+
+        .button_love:hover {
+            background: linear-gradient(45deg, #4a90e2, #2170e7);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 6px 12px rgba(33, 112, 231, 0.4);
+        }
+
+        .button_not_love:hover {
+            background: linear-gradient(45deg, #ff4757, #dc3545);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 6px 12px rgba(220, 53, 69, 0.4);
+        }
+
+        #present1 {
+            display: none;
+            max-width: 70%;
+            width: 100%;
+            height: auto;
+            margin-top: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            opacity: 0;
+            transform: scale(0.95);
+            border: 5px solid white;
+        }
+
+        #present1.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        #resetBtn {
+            margin-top: 30px;
+            padding: 10px 30px;
+            font-size: 16px;
+            cursor: pointer;
+            background: linear-gradient(45deg, #6c757d, #495057);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        #resetBtn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(108, 117, 125, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 32px;
+                margin-bottom: 30px;
+                transform: translateY(-50px);
+            }
+            
+            .buttons-container {
+                transform: translateY(-10px);
+                gap: 20px;
+            }
+            
+            .button-wrapper {
+                width: 280px;
+                height: 42px;
+            }
+            
+            .button_love,
+            .button_not_love {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 24px;
+                transform: translateY(-30px);
+            }
+            
+            .button-wrapper {
+                width: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>🎁 Сюрприз для тебя</h1>
+    
+    <div class="buttons-container" id="buttonsContainer">
+        <div class="button-wrapper">
+            <button class="button_love" id="loveBtn">❤️ Хочешь подарок?</button>
+            <button class="button_not_love" id="notLoveBtn">✨ Вот держи!</button>
+        </div>
+    </div>
+
+    <img id="present1" src="css_js/photo/shokolad.png" alt="Подарок">
+
+    <script>
+        const loveBtn = document.getElementById('loveBtn');
+        const notLoveBtn = document.getElementById('notLoveBtn');
+        const buttonsContainer = document.getElementById('buttonsContainer');
+        const photo = document.getElementById('present1');
+
+        loveBtn.addEventListener('click', function() {
+            buttonsContainer.classList.add('active');
+            
+            photo.style.display = 'block';
+            
+            setTimeout(() => {
+                photo.classList.add('visible');
+            }, 50);
+            
+            resetBtn.style.display = 'block';
+        });
+
+        notLoveBtn.addEventListener('click', function() {
+            alert('🎉 Поздравляю! Это твой подарок!');
+            
+            photo.style.transform = 'scale(1.1)';
+            setTimeout(() => {
+                photo.style.transform = 'scale(1)';
+            }, 200);
+        });
+
+        resetBtn.addEventListener('click', function() {
+            photo.classList.remove('visible');
+            
+            setTimeout(() => {
+                photo.style.display = 'none';
+                buttonsContainer.classList.remove('active');
+                resetBtn.style.display = 'none';
+            }, 500);
+        });
+
+        buttonsContainer.addEventListener('mouseenter', function() {
+            if (!this.classList.contains('active')) {
+                loveBtn.style.transform = 'translateY(-2px) scale(1.02)';
+            }
+        });
+
+        buttonsContainer.addEventListener('mouseleave', function() {
+            loveBtn.style.transform = 'translateY(0) scale(1)';
+        });
+    </script>
+</body>
+</html>
